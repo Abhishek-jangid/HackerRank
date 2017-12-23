@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] solve(int[] grades){
+        int[] abh = new int[grades.length];
+        for(int i =0;i<grades.length;i++){
+            int a = grades[i];
+            int quotient = a/5;
+            int m = quotient+1;
+            //System.out.println("quotient"+quotient);
+            int mul = m*5;
+            //System.out.println("mul"+mul);
+            int dif = mul-a;
+            //System.out.println("dif"+dif);
+
+            if(a>37){
+                if(dif<3){
+                    a=a+dif;
+                    //System.out.println("a= "+a);
+                    abh[i] = a; 
+                }
+                else{
+                    //System.out.println("a= "+a);
+                    abh[i] = a;
+                }
+            }
+
+
+            else{
+                //System.out.println("a= "+a);
+                abh[i] = a;
+            }
+        }
+        return abh;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] grades = new int[n];
+        for(int grades_i=0; grades_i < n; grades_i++){
+            grades[grades_i] = in.nextInt();
+        }
+        int[] result = solve(grades);
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
+        }
+        System.out.println("");
+        
+
+    }
+}
