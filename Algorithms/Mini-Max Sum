@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long[] arr = new long[5];
+        for(int arr_i=0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextInt();
+        }
+
+        long sum = arr[0] + arr[1]+ arr[2]+ arr[3]+ arr[4];
+
+        long[] sumarr  = new long[5];
+        
+        for(int i = 0 ; i<5 ; i++){
+            sumarr[i] = sum - arr[i];
+        }
+        
+        long max = sumarr[0];
+        for(int j = 0 ; j<5 ; j++){
+            if(sumarr[j] >= max){
+                max = sumarr[j];
+            }
+        }
+        
+        long min = sumarr[0];
+        for(int k = 0 ; k<5 ; k++){
+            if(sumarr[k] <= min){
+                min = sumarr[k];
+            }
+        }
+        
+        System.out.println(min + " " + max);
+        
+    }
+}
