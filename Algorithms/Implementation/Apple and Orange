@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+        int t = in.nextInt();
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int m = in.nextInt();
+        int n = in.nextInt();
+        int[] apple = new int[m];
+        for(int apple_i=0; apple_i < m; apple_i++){
+            apple[apple_i] = in.nextInt();
+        }
+        int[] orange = new int[n];
+        for(int orange_i=0; orange_i < n; orange_i++){
+            orange[orange_i] = in.nextInt();
+        }
+        int apples = calcapples(s,t,a,m,apple);
+        int oranges= calcoranges(s,t,b,n,orange);
+        System.out.println(apples);
+        System.out.println(oranges);
+    }
+    
+     public static int calcapples(int a,int z,int b,int c,int[] ar){
+        int count =0;
+        for(int i=0;i<c;i++){
+             if(ar[i]+b>=a&&ar[i]+b<=z){
+                count = count+1;
+             }
+        }
+        return count;
+    }
+
+    public static int calcoranges(int z,int a,int b,int c,int[] ar){
+    int count = 0;
+    for(int j=0;j<c;j++){
+        if (ar[j]+b<=a&&ar[j]+b>=z) {
+            count = count+1;
+            }
+        }
+    return count;
+    }
+
+}
