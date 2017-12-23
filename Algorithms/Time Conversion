@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String timeConversion(String s) {
+        String aa = s.substring(0,2);
+    	String bb = s.substring(3,5);
+    	String cc = s.substring(6,8);
+        String ampm = s.substring(8);
+        
+        int a = Integer.valueOf(aa);
+
+        int aout=0;
+
+        if(ampm.equals("AM")){
+        	
+        	if(a==12){aout = 00;}
+        	if(a<12&&a>0){aout = a;}
+        }
+        if (ampm.equals("PM")) {
+        	
+        	if (a==12){aout =12;}
+        	if(a<12&&a>0){aout =a+12;}
+        }
+
+		String anew = String.format("%02d",aout);
+
+        String ss =  anew+":"+bb+":"+cc;
+
+        return ss;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = timeConversion(s);
+        System.out.println(result);
+    }
+}
