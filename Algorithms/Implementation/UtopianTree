@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class UtopianTree {
+
+    static int utopianTree(int n) {
+               int num = 1;
+        if(n==0){
+            return num;
+        }
+        if(n==1){
+            return num+1;
+        }
+        if(n>=2){
+            for(int i=1;i<=n;i++){
+                if(i%2 == 0){
+                    num = num +1;
+                }
+                else{
+                    num = num *2;
+                }
+            }
+
+        }
+        return num; 
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int result = utopianTree(n);
+            System.out.println(result);
+        }
+        in.close();
+    }
+}
