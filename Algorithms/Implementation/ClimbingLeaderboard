@@ -1,0 +1,85 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class ClimbingLeaderboard {
+
+    static int[] climbingLeaderboard(int[] score, int[] alice) {
+
+        int[] res = new int[alice.length];
+        
+        for(int i = 0 ; i < alice.length ; i++){
+            int number = alice[i];
+            int a=1;
+
+            for(int j = 0 ; j < score.length ; j++){
+                if(number<score[j]){
+                    a=a+1;
+                }  
+            }
+            
+            res[i]=a;
+        }
+
+        return res;
+
+    }
+
+   
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] scores = new int[n];
+        for(int scores_i = 0; scores_i < n; scores_i++){
+            scores[scores_i] = in.nextInt();
+        }
+
+        int[] score = sortedArray(scores);
+
+        int m = in.nextInt();
+        int[] alice = new int[m];
+        for(int alice_i = 0; alice_i < m; alice_i++){
+            alice[alice_i] = in.nextInt();
+        }
+
+        int[] result = climbingLeaderboard(score, alice);
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
+        }
+        System.out.println("");
+
+
+        in.close();
+    }
+
+static int[] sortedArray(int[] ar){
+        int n = ar.length ;
+        for(int i = 0 ;i<n;i++){
+            for(int j = i+1;j<n;j++){
+                if(ar[i]==ar[j]){
+                    ar[j]=ar[n-1];
+                    n--;
+                    j--;
+                }
+            }
+        }       
+        int[] newarray = Arrays.copyOf(ar,n);
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = i + 1; j < n; j++) 
+            {
+                if (newarray[i] < newarray[j]) 
+                {
+                    int temp = newarray[i];
+                    newarray[i] = newarray[j];
+                    newarray[j] = temp;
+                }
+            }
+        }
+        return newarray;
+    }
+
+}
