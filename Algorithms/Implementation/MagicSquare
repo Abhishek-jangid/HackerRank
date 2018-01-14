@@ -4,7 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution {
+public class MagicSquare {
 
     static int formingMagicSquare(int[][] square) {
         int minDiff =Integer.MAX_VALUE;
