@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class FindDigits {
+
+    static int findDigits(int n) {
+        int initial = n;
+        int number = 0;
+        int length = String.valueOf(n).length();
+        int[] digit = {0,0,0,0,0,0,0,0,0,0};
+
+        for(int i=length-1;i>=0;i--){
+            int power = getPower(10,i);
+            digit[i] = n/power;
+            n = n % power;
+        }
+
+        for(int j=0;j<digit.length;j++){
+            if(digit[j] != 0 && initial%digit[j] == 0){
+                number = number +1;
+            }
+        }
+
+        
+    return number;
+    }
+
+    static int getPower(int a,int b){
+    int result = 1;
+    for(int i = 1 ; i<=b ; i++){
+        result = result * a;
+    }
+    return result;
+
+}
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int result = findDigits(n);
+            System.out.println(result);
+        }
+        in.close();
+    }
+}
