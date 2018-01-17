@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class ViralAdvertising {
+
+    static int viralAdvertising(int n) {
+        
+int people = 2;
+        int start = 0;
+        int fav = 2;
+        if(n == 1){
+        	return 2;
+        }
+        for(int i=2 ;i<=n;i++){
+        	start = fav * 3;
+        	fav = start / 2;
+        	people = people+fav;
+        }
+        return people;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int result = viralAdvertising(n);
+        System.out.println(result);
+        in.close();
+    }
+}
