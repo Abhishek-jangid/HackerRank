@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class BeautifulMovieDay {
+
+    static int beautifulDays(int i, int j, int k) {
+        int number = 0;
+        for(int z = i ; z<=j ; z++){
+            int rev = getreverse(z);
+            int diff = z-rev;
+            if(diff % k == 0){
+                number = number + 1;
+            }
+        }
+        return number;
+    }
+
+    static int getreverse(int number){
+        int reverse = 0;
+        while(number!=0){
+            reverse = (reverse * 10) + (number % 10);
+            number = number / 10 ;
+        }
+
+        return reverse;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int i = in.nextInt();
+        int j = in.nextInt();
+        int k = in.nextInt();
+        int result = beautifulDays(i, j, k);
+        System.out.println(result);
+        in.close();
+    }
+}
