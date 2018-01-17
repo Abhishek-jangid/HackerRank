@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class JumpingClouds {
+
+    static int jumpingOnClouds(int[] c, int k) {
+        int power = 100;
+        int[] pos = new int[c.length/k];
+        pos[0] = 0;
+        for(int i =1 ; i<pos.length;i++){
+            pos[i] = pos[i-1]+k;
+        }
+        for(int a=0;a<pos.length;a++){
+            if(c[pos[a]]==1){
+                power = power - 2 -1;
+            }else if(c[pos[a]]==0){
+                power = power - 1;
+            }
+        }
+        
+        return power;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] c = new int[n];
+        for(int c_i = 0; c_i < n; c_i++){
+            c[c_i] = in.nextInt();
+        }
+        int result = jumpingOnClouds(c, k);
+        System.out.println(result);
+        in.close();
+    }
+}
