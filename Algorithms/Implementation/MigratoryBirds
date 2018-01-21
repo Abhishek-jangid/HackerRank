@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class MigratoryBirds {
+
+    static int migratoryBirds(int n, int[] ar) {
+        int c1=0;
+        int c2=0;
+        int c3=0;
+        int c4=0;
+        int c5=0;
+
+        for(int i=0;i<n;i++){
+            if(ar[i]==1){
+                c1++;
+            }
+            if(ar[i]==2){
+                c2++;   
+            }
+            if(ar[i]==3){
+                c3++;
+            }
+            if(ar[i]==4){
+                c4++;
+            }
+            if(ar[i]==5){
+                c5++;
+            }
+        }
+        int result = 0;
+        int[] b = {c1,c2,c3,c4,c5};
+        int max = b[0];
+        for(int i = 0; i<5;i++){
+            if(b[i]>max){
+                max = b[i];
+                result = i+1;
+            }
+        }
+        
+    return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] ar = new int[n];
+        for(int ar_i = 0; ar_i < n; ar_i++){
+            ar[ar_i] = in.nextInt();
+        }
+        int result = migratoryBirds(n, ar);
+        System.out.println(result);
+    }
+}
