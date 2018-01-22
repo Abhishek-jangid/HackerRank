@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class CatAndMouse {
+
+    static String catAndMouse(int x, int y, int z) {
+        String result = "";
+        int c1 = z-x;
+        int c2 = z-y;
+        if(c1<0){
+            c1 = -c1;
+        }
+        if(c2<0){
+            c2 = -c2;
+        }
+        if(c1<c2){
+            result = "Cat A";
+        }
+        if(c1>c2){
+            result = "Cat B";
+        }
+        if(c1==c2){
+            result = "Mouse C";
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            int x = in.nextInt();
+            int y = in.nextInt();
+            int z = in.nextInt();
+            String result = catAndMouse(x, y, z);
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] + (i != result.length - 1 ? " " : ""));
+            }
+            System.out.println("");
+
+
+        }
+        in.close();
+    }
+}
