@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class SherlockandSquares {
+
+    static int squares(int a, int b) {
+        int count=0;
+        for(int i=a;i<=b;i++){
+            double j=Double.valueOf(i);
+            double sqrr = Math.sqrt(j);
+            if(Math.floor(sqrr)==Math.ceil(sqrr)){
+                count++;
+                i=i+(((int)sqrr)*2);
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int result = squares(a, b);
+            System.out.println(result);
+        }
+        in.close();
+    }
+}
