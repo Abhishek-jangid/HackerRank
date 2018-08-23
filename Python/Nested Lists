@@ -1,0 +1,28 @@
+if __name__ == '__main__':
+    main_list=[]
+    marks_list=[]
+    for i in range(int(input())):
+        nested_list=[]
+        name = input()
+        score = float(input())
+        marks_list.append(score)
+        nested_list.append(name)
+        nested_list.append(score)
+        main_list.append(nested_list)
+
+    
+    marks_list.sort()
+    min_marks = min(marks_list)
+    global sec
+    for i in range(len(marks_list)):
+        if  marks_list[i] > min_marks:
+            sec = marks_list[i]
+            break
+    name_list=[]
+    for i in range(len(main_list)):
+        ab = main_list[i]
+        if ab[1] == sec:
+            name_list.append(ab[0])
+    name_list.sort()
+    for i in range(len(name_list)):
+        print(name_list[i])
